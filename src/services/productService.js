@@ -5,6 +5,13 @@ class ProductService {
     if (!name || !plu) {
       throw new Error("Name and PLU are required");
     }
+
+    const existingProduct = await productRepository.findByPLU(plu);
+
+    if (existingProduct) {
+      throw new Error(`Product with PLU "${plu}" already exists`);
+    }
+
     return await productRepository.create(name, plu);
   }
 

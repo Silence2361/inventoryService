@@ -22,6 +22,14 @@ class InventoryRepository {
     const result = await query("SELECT * FROM inventory");
     return result.rows;
   }
+
+  async findByProduct(productId) {
+    const result = await query(
+      "SELECT * FROM inventory WHERE product_id = $1",
+      [productId]
+    );
+    return result.rows[0];
+  }
 }
 
 export default new InventoryRepository();

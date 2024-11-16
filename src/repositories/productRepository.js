@@ -18,6 +18,11 @@ class ProductRepository {
     const result = await query("SELECT * FROM products WHERE id = $1", [id]);
     return result.rows[0];
   }
+
+  async findByPLU(plu) {
+    const result = await query("SELECT * FROM products WHERE plu = $1", [plu]);
+    return result.rows[0];
+  }
 }
 
 export default new ProductRepository();
