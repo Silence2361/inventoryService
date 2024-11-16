@@ -1,3 +1,5 @@
+###### Ensure History Service is running before using Inventory Service. The History Service should be accessible at the URL specified in the .env file (e.g., http://localhost:4000/api/history).
+
 # Install dependencies
 
 npm install
